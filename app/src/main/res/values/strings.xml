@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GeoQuiz</string>
+    <string name="question_text">Canberra adalah ibukota Australia</string>
+    <string name="true_button">Benar</string>
+    <string name="false_button">Salah</string>
+    <string name="correct_toast">Anda memilih benar</string>
+</resources>
