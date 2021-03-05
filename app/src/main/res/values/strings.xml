@@ -3,5 +3,13 @@
     <string name="question_text">Canberra adalah ibukota Australia</string>
     <string name="true_button">Benar</string>
     <string name="false_button">Salah</string>
-    <string name="correct_toast">Anda memilih benar</string>
+    <string name="correct_toast">Jawaban anda betul</string>
+    <string name="next_button">Berikutnya</string>
+    <string name="question_australia">Canberra adalah ibukota Australia</string>
+    <string name="question_oceans">Samudra Pacific lebih besar dari Samudra Atlantik</string>
+    <string name="question_mideast">Terusan Suez menghubungkan Laut Merah dan Samudra Hindia</string>
+    <string name="question_africa">Hulu Sungai Nil berada di Mesir</string>
+    <string name="question_americas">Sungai Amazon adalah sungai terpanjang di Benua Amerika</string>
+    <string name="question_asia">Danau Baikal adalah danau air tawar tertua dan terdalam di  dunia </string>
+    <string name="incorrect_toast">Jawaban anda salah</string>
 </resources>
