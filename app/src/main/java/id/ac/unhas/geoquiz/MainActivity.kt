@@ -18,15 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private val model:QuizViewModel by viewModels()
 
-    private val questionBank = listOf(
-        Question(R.string.question_australia, true),
-        Question(R.string.question_oceans, true),
-        Question(R.string.question_mideast, false),
-        Question(R.string.question_africa, false),
-        Question(R.string.question_americas, true),
-        Question(R.string.question_asia, true)
-    )
-    private var currentIndex = 0
+
 
     private lateinit var nextButton: Button
     private lateinit var questionTextView: TextView
@@ -46,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         questionTextView = findViewById(R.id.question_text_view)
 
 
-        val questionTextResId = questionBank[currentIndex].textResId
+        val questionTextResId = model.currentQuestionText
 
         questionTextView.setText(questionTextResId)
 
@@ -56,9 +48,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         nextButton.setOnClickListener {
-            currentIndex = (currentIndex + 1) % questionBank.size
-            val questionTextResId = questionBank[currentIndex].textResId
-            questionTextView.setText(questionTextResId)
+            model.moveToNext()
+            questionTextView.setText(model.currentQuestionText)
         }
 
         falseButton.setOnClickListener { view: View ->
@@ -94,7 +85,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer(userAnswer: Boolean) {
-        val correctAnswer = questionBank[currentIndex].answer
+        val correctAnswer = model.currentQuestionAnswer
 
         val messageResId = if (userAnswer == correctAnswer) {
             R.string.correct_toast
