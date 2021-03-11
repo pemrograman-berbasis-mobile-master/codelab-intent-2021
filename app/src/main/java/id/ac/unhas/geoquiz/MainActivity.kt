@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 
 private const val TAG = "MainActivity"
 
@@ -14,6 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var trueButton: Button
     private lateinit var falseButton: Button
+
+    private val model:QuizViewModel by viewModels()
 
     private val questionBank = listOf(
         Question(R.string.question_australia, true),
@@ -32,6 +35,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Log.d(TAG,"onCreate(Bundle?) called")
         setContentView(R.layout.activity_main)
+
+        //create or get viewmodel object
+        Log.d(TAG, "Got a QuizViewModel: $model")
+        Log.d(TAG,"Got an Activity: $this")
 
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
