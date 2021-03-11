@@ -1,13 +1,22 @@
 package id.ac.unhas.geoquiz
 
 import android.util.Log
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
 
-class QuizViewModel : ViewModel() {
+class QuizViewModel(private val state: SavedStateHandle) : ViewModel() {
+
+    companion object{
+        private const val CURRENT_INDEX = "currentIndex"
+    }
+
+    private var currentIndex: Int
 
     init {
-        Log.i("QuizViewModel","QuizViewModel created")
+        Log.d("QuizViewModel","QuizViewModel created")
+        currentIndex = state.get<Int>(CURRENT_INDEX)?:0
+        Log.d("QuizViewModel","current Index: $currentIndex")
     }
 
     private val questionBank = listOf(
@@ -18,7 +27,7 @@ class QuizViewModel : ViewModel() {
         Question(R.string.question_americas, true),
         Question(R.string.question_asia, true)
     )
-    private var currentIndex = 0
+
 
     override fun onCleared() {
         super.onCleared()
@@ -33,5 +42,8 @@ class QuizViewModel : ViewModel() {
 
     fun moveToNext(){
         currentIndex = (currentIndex + 1) % questionBank.size
+        state.set(CURRENT_INDEX,currentIndex)
     }
+
+
 }

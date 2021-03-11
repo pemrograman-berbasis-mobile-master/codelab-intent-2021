@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
 
     private val model:QuizViewModel by viewModels()
 
-
-
     private lateinit var nextButton: Button
     private lateinit var questionTextView: TextView
 
