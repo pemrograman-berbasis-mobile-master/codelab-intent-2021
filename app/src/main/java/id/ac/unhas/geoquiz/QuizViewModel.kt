@@ -34,15 +34,24 @@ class QuizViewModel(private val state: SavedStateHandle) : ViewModel() {
         Log.i("QuizViewModel","QuizViewModel destroyed!")
     }
 
+    private var isCheater = false
+
     val currentQuestionAnswer: Boolean
         get() = questionBank[currentIndex].answer
 
     val currentQuestionText: Int
         get() = questionBank[currentIndex].textResId
 
+    val cheaterStatus: Boolean
+        get() = isCheater
+
     fun moveToNext(){
         currentIndex = (currentIndex + 1) % questionBank.size
         state.set(CURRENT_INDEX,currentIndex)
+    }
+
+    fun setCheaterStatus(cheaterStatus: Boolean){
+        isCheater = cheaterStatus
     }
 
 
