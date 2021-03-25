@@ -12,4 +12,10 @@
     <string name="question_americas">Sungai Amazon adalah sungai terpanjang di Benua Amerika</string>
     <string name="question_asia">Danau Baikal adalah danau air tawar tertua dan terdalam di  dunia </string>
     <string name="incorrect_toast">Jawaban anda salah</string>
+
+    <string name="warning_text">Are you sure you want to do this?</string>
+    <string name="show_answer_button">Show Answer</string>
+    <string name="cheat_button">Cheat!</string>
+    <string name="judgment_toast">Cheating is wrong.</string>
+
 </resources>

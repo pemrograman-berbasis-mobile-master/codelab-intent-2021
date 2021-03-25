@@ -1,5 +1,6 @@
 package id.ac.unhas.geoquiz
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var nextButton: Button
     private lateinit var questionTextView: TextView
+    private lateinit var cheatButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         falseButton = findViewById(R.id.false_button)
         nextButton = findViewById(R.id.next_button)
         questionTextView = findViewById(R.id.question_text_view)
+        cheatButton = findViewById(R.id.cheat_button)
 
 
         val questionTextResId = model.currentQuestionText
@@ -53,6 +56,11 @@ class MainActivity : AppCompatActivity() {
         falseButton.setOnClickListener { view: View ->
             //Todo response to the click here
             checkAnswer(false)
+        }
+
+        cheatButton.setOnClickListener {
+            val intent = Intent(this,CheatActivity::class.java)
+            startActivity(intent)
         }
 
     }
